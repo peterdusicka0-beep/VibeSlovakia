@@ -1,16 +1,96 @@
 <!DOCTYPE html>
 <html lang="sk">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>VibeSlovakia</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Leaflet CSS -->
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+  />
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0f172a;
+      color: #f8fafc;
+    }
+
+    header {
+      background: #020617;
+      padding: 15px;
+      text-align: center;
+      font-size: 22px;
+      font-weight: bold;
+      color: #facc15;
+    }
+
+    #map {
+      height: calc(100vh - 60px);
+      width: 100%;
+    }
+
+    .leaflet-popup-content {
+      font-size: 14px;
+    }
+  </style>
 </head>
+
 <body>
 
-<div id="app"></div>
+<header>
+  🏰 VibeSlovakia – Objav hrady Slovenska
+</header>
 
-<script src="script.js"></script>
+<div id="map"></div>
+
+<!-- Leaflet JS -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<script>
+  // Inicializácia mapy
+  const map = L.map("map").setView([48.7, 19.5], 7);
+
+  // Podkladová mapa
+  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+    attribution: "© OpenStreetMap"
+  }).addTo(map);
+
+  // Hrady (zatím natvrdo – neskôr z JSON)
+  const castles = [
+    {
+      name: "Bojnický zámok",
+      lat: 48.7804,
+      lng: 18.5866
+    },
+    {
+      name: "Spišský hrad",
+      lat: 49.0009,
+      lng: 20.7684
+    },
+    {
+      name: "Trenčiansky hrad",
+      lat: 48.8945,
+      lng: 18.0397
+    },
+    {
+      name: "Oravský hrad",
+      lat: 49.2610,
+      lng: 19.3569
+    }
+  ];
+
+  // Pridanie markerov
+  castles.forEach(castle => {
+    L.marker([castle.lat, castle.lng])
+      .addTo(map)
+      .bindPopup(`<b>${castle.name}</b><br>Klikni a objav históriu`);
+  });
+</script>
+
 </body>
 </html>
