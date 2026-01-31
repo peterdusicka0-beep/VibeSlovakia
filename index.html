@@ -2,95 +2,26 @@
 <html lang="sk">
 <head>
   <meta charset="UTF-8" />
-  <title>VibeSlovakia</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VibeSlovakia – Mapy hradov</title>
 
-  <!-- Leaflet -->
+  <!-- Leaflet CSS -->
   <link
     rel="stylesheet"
     href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
   />
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #0f172a;
-      color: white;
-    }
-
-    header {
-      padding: 15px;
-      text-align: center;
-      background: #020617;
-      border-bottom: 2px solid gold;
-    }
-
-    #map {
-      height: calc(100vh - 70px);
-    }
-
-    .leaflet-popup-content {
-      color: black;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
 
-<header>
-  <h1>🏰 VibeSlovakia</h1>
-  <p>Objav hrady Slovenska</p>
-</header>
+  <h1>🏰 VibeSlovakia – Hrady Slovenska</h1>
+  <div id="map"></div>
 
-<div id="map"></div>
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
-<script>
-  // Inicializácia mapy
-  const map = L.map("map").setView([48.7, 19.5], 7);
-
-  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-    attribution: "© OpenStreetMap"
-  }).addTo(map);
-
-  // Dáta hradov (dočasne priamo v kóde)
-  const castles = [
-    {
-      name: "Bojnický zámok",
-      lat: 48.7804,
-      lng: 18.5866,
-      desc: "Najromantickejší zámok na Slovensku."
-    },
-    {
-      name: "Spišský hrad",
-      lat: 49.0009,
-      lng: 20.7684,
-      desc: "Najväčší hradný komplex v strednej Európe."
-    },
-    {
-      name: "Trenčiansky hrad",
-      lat: 48.8945,
-      lng: 18.0397,
-      desc: "Dominanta mesta Trenčín."
-    },
-    {
-      name: "Oravský hrad",
-      lat: 49.2610,
-      lng: 19.3569,
-      desc: "Hrad na skalnom brale."
-    }
-  ];
-
-  // Vykreslenie hradov
-  castles.forEach(castle => {
-    L.marker([castle.lat, castle.lng])
-      .addTo(map)
-      .bindPopup(
-        `<b>${castle.name}</b><br>${castle.desc}`
-      );
-  });
-</script>
+  <!-- Tvoja mapa -->
+  <script src="map.js"></script>
 
 </body>
 </html>
