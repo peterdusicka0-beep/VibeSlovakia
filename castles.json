@@ -1,0 +1,34 @@
+[
+  {
+    "id": "bojnice",
+    "name": "Bojnický zámok",
+    "lat": 48.7804,
+    "lng": 18.5866,
+    "region": "Horná Nitra",
+    "description": "Najromantickejší zámok na Slovensku."
+  },
+  {
+    "id": "spis",
+    "name": "Spišský hrad",
+    "lat": 49.0009,
+    "lng": 20.7684,
+    "region": "Spiš",
+    "description": "Najväčší hradný komplex v strednej Európe."
+  },
+  {
+    "id": "trencin",
+    "name": "Trenčiansky hrad",
+    "lat": 48.8945,
+    "lng": 18.0397,
+    "region": "Považie",
+    "description": "Dominanta mesta Trenčín."
+  },
+  {
+    "id": "orava",
+    "name": "Oravský hrad",
+    "lat": 49.2610,
+    "lng": 19.3569,
+    "region": "Orava",
+    "description": "Hrad na strmom skalnom brale."
+  }
+]
