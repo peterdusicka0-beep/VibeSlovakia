@@ -1,30 +1,20 @@
 const castles = [
   {
-    id: 1,
-    name: "Trenčiansky hrad",
-    lat: 48.8946,
-    lng: 18.0397,
-    desc: "Dominanta Považia."
+    name: "Bratislavský hrad",
+    lat: 48.1421,
+    lng: 17.1001,
+    desc: "Dominanta hlavného mesta"
   },
   {
-    id: 2,
-    name: "Beckovský hrad",
-    lat: 48.7931,
-    lng: 17.8986,
-    desc: "Romantická zrúcanina."
-  },
-  {
-    id: 3,
     name: "Spišský hrad",
-    lat: 49.0006,
-    lng: 20.7681,
-    desc: "Najväčší hrad v strednej Európe."
+    lat: 48.9989,
+    lng: 20.7683,
+    desc: "Najväčší hrad strednej Európy"
   },
   {
-    id: 4,
     name: "Oravský hrad",
-    lat: 49.2613,
-    lng: 19.3569,
-    desc: "Jeden z najkrajších hradov Slovenska."
+    lat: 49.2631,
+    lng: 19.3597,
+    desc: "Gotický hrad nad riekou Orava"
   }
 ];
