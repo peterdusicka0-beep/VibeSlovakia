@@ -1,33 +1,10 @@
-body {
+html, body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background: #f4f4f4;
-}
-
-header {
-  background: #1f1f1f;
-  color: white;
-  padding: 10px;
-  text-align: center;
+  padding: 0;
+  height: 100%;
 }
 
 #map {
-  height: 70vh;
-}
-
-#castle-panel {
-  padding: 15px;
-  background: white;
-  border-top: 2px solid #ddd;
-}
-
-#castle-panel h2 {
-  margin-top: 0;
-}
-
-button {
-  padding: 10px;
-  margin-right: 10px;
-  margin-top: 10px;
-  cursor: pointer;
+  height: 100vh;
+  width: 100%;
 }
