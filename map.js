@@ -1,46 +1,19 @@
-// 1. Inicializácia mapy
-const map = L.map("map").setView([48.7, 19.7], 7);
+// 1️⃣ Inicializácia mapy
+const map = L.map("map").setView([48.7, 19.5], 7);
 
-// 2. Podkladová mapa
+// 2️⃣ Podkladová mapa
 L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
   attribution: "© OpenStreetMap"
 }).addTo(map);
 
-// 3. DÁTA – HRADY (všetky musia mať čísla, nie text s čiarkou)
-const castles = [
-  {
-    name: "Trenčiansky hrad",
-    lat: 48.8946,
-    lng: 18.0396,
-    desc: "Dominanta Považia"
-  },
-  {
-    name: "Spišský hrad",
-    lat: 49.0009,
-    lng: 20.7686,
-    desc: "Najväčší hradný komplex v strednej Európe"
-  },
-  {
-    name: "Oravský hrad",
-    lat: 49.2614,
-    lng: 19.3573,
-    desc: "Dráma na skale"
-  },
-  {
-    name: "Devín",
-    lat: 48.1737,
-    lng: 16.9784,
-    desc: "Symbol slovenskej histórie"
-  }
-];
-
-// 4. KONTROLA – povinná diagnostika
+// 3️⃣ Kontrola dát (POVINNÉ)
 console.log("Počet hradov:", castles.length);
 console.table(castles);
 
-// 5. MARKERY – SPRÁVNY CYKLUS (žiadny return, žiadna chyba)
+// 4️⃣ Vykreslenie markerov
 castles.forEach(castle => {
 
+  // tvrdá validácia – ak niečo chýba, marker sa nevytvorí
   if (
     typeof castle.lat !== "number" ||
     typeof castle.lng !== "number"
@@ -57,10 +30,10 @@ castles.forEach(castle => {
   `);
 });
 
-// 6. Finálna kontrola
+// 5️⃣ Finálna kontrola
 setTimeout(() => {
   console.log(
-    "Vykreslené markery:",
+    "Markery na mape:",
     document.querySelectorAll(".leaflet-marker-icon").length
   );
 }, 500);
