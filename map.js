@@ -36,4 +36,11 @@ setTimeout(() => {
     "Markery na mape:",
     document.querySelectorAll(".leaflet-marker-icon").length
   );
-}, 500);
+}, 500);  // Pred použitím musíš mať dáta, napr.:
+const castles = [
+  { name: "Bratislavský hrad", lat: 48.1421, lng: 17.1001, desc: "Dominanta hlavného mesta" },
+  { name: "Spišský hrad", lat: 48.9989, lng: 20.7683, desc: "Najväčší hrad strednej Európy" },
+  { name: "Oravský hrad", lat: 49.2631, lng: 19.3597, desc: "Gotický hrad nad riekou Orava" }
+  // ... ďalšie hrady
+];
+
