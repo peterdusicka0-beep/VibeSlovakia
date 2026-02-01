@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="sk">
 <head>
-  <meta charset="UTF-8" />
-  <title>VibeSlovakia – Mapy hradov</title>
+  <meta charset="UTF-8">
+  <title>🏰 VibeSlovakia – Hrady Slovenska</title>
 
   <!-- Leaflet CSS -->
   <link
@@ -10,25 +10,24 @@
     href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
   />
 
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    body { margin: 0; font-family: Arial, sans-serif; }
+    h1 { padding: 10px; margin: 0; background: #222; color: white; }
+    #map { height: calc(100vh - 50px); }
+  </style>
 </head>
 <body>
 
-  <h1>🏰 VibeSlovakia – Hrady Slovenska</h1>
-  <div id="map"></div>
-<div id="castle-panel">
-  <h2 id="castle-name">Vyber hrad</h2>
-  <p id="castle-desc">Klikni na hrad na mape</p>
+<h1>🏰 VibeSlovakia – Hrady Slovenska</h1>
+<div id="map"></div>
 
-  <button id="audioBtn" disabled>🎧 Spusti audio</button>
-  <button id="arBtn" disabled>👁️ AR pohľad</button>
-</div>
+<!-- Leaflet JS -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
-  <!-- Leaflet JS -->
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-
-  <!-- Tvoja mapa -->
-  <script src="map.js"></script>
+<!-- Tvoj JS -->
+<script src="map.js"></script>
 
 </body>
 </html>
