@@ -1,19 +1,23 @@
-// 1️⃣ Inicializácia mapy
+// bezpečnostná kontrola
+if (!Array.isArray(castles)) {
+  throw new Error("Castles data not loaded!");
+}
+
+// inicializácia mapy
 const map = L.map("map").setView([48.7, 19.5], 7);
 
-// 2️⃣ Podkladová mapa
+// podkladová mapa
 L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-  attribution: "© OpenStreetMap"
+  attribution: "© OpenStreetMap contributors"
 }).addTo(map);
 
-// 3️⃣ Kontrola dát (POVINNÉ)
+// kontrola dát
 console.log("Počet hradov:", castles.length);
 console.table(castles);
 
-// 4️⃣ Vykreslenie markerov
+// vykreslenie markerov
 castles.forEach(castle => {
 
-  // tvrdá validácia – ak niečo chýba, marker sa nevytvorí
   if (
     typeof castle.lat !== "number" ||
     typeof castle.lng !== "number"
@@ -22,25 +26,17 @@ castles.forEach(castle => {
     return;
   }
 
-  const marker = L.marker([castle.lat, castle.lng]).addTo(map);
-
-  marker.bindPopup(`
-    <strong>${castle.name}</strong><br>
-    ${castle.desc}
-  `);
+  L.marker([castle.lat, castle.lng])
+    .addTo(map)
+    .bindPopup(
+      `<strong>${castle.name}</strong><br>${castle.desc}`
+    );
 });
 
-// 5️⃣ Finálna kontrola
+// finálna kontrola
 setTimeout(() => {
   console.log(
-    "Markery na mape:",
+    "Počet markerov:",
     document.querySelectorAll(".leaflet-marker-icon").length
   );
-}, 500);  // Pred použitím musíš mať dáta, napr.:
-const castles = [
-  { name: "Bratislavský hrad", lat: 48.1421, lng: 17.1001, desc: "Dominanta hlavného mesta" },
-  { name: "Spišský hrad", lat: 48.9989, lng: 20.7683, desc: "Najväčší hrad strednej Európy" },
-  { name: "Oravský hrad", lat: 49.2631, lng: 19.3597, desc: "Gotický hrad nad riekou Orava" }
-  // ... ďalšie hrady
-];
-
+}, 500);
