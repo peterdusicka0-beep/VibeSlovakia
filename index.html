@@ -5,17 +5,26 @@
   <title>VibeSlovakia</title>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
   <link rel="stylesheet" href="style.css">
+  <link rel="manifest" href="manifest.json">
 </head>
 <body>
   <header>
     <h1>VibeSlovakia</h1>
-    <p>Interaktívna mapa hradov Slovenska</p>
+    <button id="downloadCastleBtn">Stiahni hrad do vrecka</button>
   </header>
+
   <main>
     <div id="map"></div>
+    <div id="audioContainer">
+      <audio id="castleAudio" controls></audio>
+    </div>
+    <div id="qrContainer"></div>
   </main>
+
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
   <script src="data/castles.js"></script>
   <script src="js/map.js"></script>
+  <script src="js/app.js"></script>
 </body>
 </html>
