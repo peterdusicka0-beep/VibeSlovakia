@@ -13,5 +13,16 @@ header {
 
 #map {
   width: 100%;
-  height: calc(100vh - 100px);
+  height: 50vh;
+  margin-bottom: 10px;
+}
+
+#audioContainer {
+  text-align: center;
+  margin: 10px 0;
+}
+
+#qrContainer {
+  text-align: center;
+  margin: 10px 0;
 }
