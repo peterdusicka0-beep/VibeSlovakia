@@ -1,2 +1,2 @@
 # VibeSlovakia
-turistická aplikácia o hradoch
+turistická aplikácia o hradoch 
