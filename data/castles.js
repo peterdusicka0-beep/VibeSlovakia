@@ -1,7 +1,72 @@
 const castles = [
-  { name: "Bratislavský hrad", lat: 48.1421, lng: 17.1001, desc: "Dominanta hlavného mesta" },
-  { name: "Spišský hrad", lat: 48.9989, lng: 20.7683, desc: "Najväčší hrad strednej Európy" },
-  { name: "Oravský hrad", lat: 49.2631, lng: 19.3597, desc: "Gotický hrad nad riekou Orava" },
-  { name: "Bojnický zámok", lat: 48.7810, lng: 18.5840, desc: "Romantický zámok Bojnice" },
-  { name: "Trenčiansky hrad", lat: 48.8945, lng: 18.0410, desc: "Hrad Matúša Čáka" }
+  {
+    id: 0,
+    name: "Bratislavský hrad",
+    lat: 48.1421,
+    lng: 17.1001,
+    desc: "Dominanta hlavného mesta",
+    zone_id: "Bratislava_Main",
+    audio_sk: "assets/audio/bratislava_sk.ogg",
+    audio_en: "assets/audio/bratislava_en.ogg",
+    ar_model_url: "assets/models/bratislava_portal.glb",
+    status_offline: true,
+    artifact_id: "artifact_001",
+    license_source: "CC-BY"
+  },
+  {
+    id: 1,
+    name: "Spišský hrad",
+    lat: 48.9989,
+    lng: 20.7683,
+    desc: "Najväčší hrad strednej Európy",
+    zone_id: "Spis_Main",
+    audio_sk: "assets/audio/spis_sk.ogg",
+    audio_en: "assets/audio/spis_en.ogg",
+    ar_model_url: "assets/models/spis_portal.glb",
+    status_offline: true,
+    artifact_id: "artifact_002",
+    license_source: "CC-BY"
+  },
+  {
+    id: 2,
+    name: "Oravský hrad",
+    lat: 49.2631,
+    lng: 19.3597,
+    desc: "Gotický hrad nad riekou Orava",
+    zone_id: "Orava_Main",
+    audio_sk: "assets/audio/orava_sk.ogg",
+    audio_en: "assets/audio/orava_en.ogg",
+    ar_model_url: "assets/models/orava_portal.glb",
+    status_offline: true,
+    artifact_id: "artifact_003",
+    license_source: "CC-BY"
+  },
+  {
+    id: 3,
+    name: "Bojnický zámok",
+    lat: 48.7810,
+    lng: 18.5840,
+    desc: "Romantický zámok Bojnice",
+    zone_id: "Bojnice_Main",
+    audio_sk: "assets/audio/bojnice_sk.ogg",
+    audio_en: "assets/audio/bojnice_en.ogg",
+    ar_model_url: "assets/models/bojnice_portal.glb",
+    status_offline: true,
+    artifact_id: "artifact_004",
+    license_source: "CC-BY"
+  },
+  {
+    id: 4,
+    name: "Trenčiansky hrad",
+    lat: 48.8945,
+    lng: 18.0410,
+    desc: "Hrad Matúša Čáka",
+    zone_id: "Trencin_Main",
+    audio_sk: "assets/audio/trencin_sk.ogg",
+    audio_en: "assets/audio/trencin_en.ogg",
+    ar_model_url: "assets/models/trencin_portal.glb",
+    status_offline: true,
+    artifact_id: "artifact_005",
+    license_source: "CC-BY"
+  }
 ];
