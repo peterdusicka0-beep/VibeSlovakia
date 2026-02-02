@@ -7,10 +7,7 @@ L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
 }).addTo(map);
 
 castles.forEach(castle => {
-  if (typeof castle.lat !== "number" || typeof castle.lng !== "number") {
-    console.error("Zlé dáta:", castle);
-    return;
-  }
+  if(typeof castle.lat !== "number" || typeof castle.lng !== "number") return;
   L.marker([castle.lat, castle.lng])
     .addTo(map)
     .bindPopup(`<strong>${castle.name}</strong><br>${castle.desc}`);
