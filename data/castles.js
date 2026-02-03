@@ -1,4 +1,4 @@
-const castles = [
+const castles = [ 
   {
     id: "bratislava",
     name: "Bratislavský hrad",
