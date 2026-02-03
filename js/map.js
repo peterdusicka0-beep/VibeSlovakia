@@ -18,6 +18,7 @@ L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
   attribution: "&copy; OpenStreetMap contributors",
 }).addTo(map);
 
+<<<<<<< Updated upstream
 // 4. Overenie dát
 if (!Array.isArray(castles)) {
   console.error("Castles data not found or invalid.");
@@ -50,3 +51,28 @@ castles.forEach((castle) => {
 
 // 7. Debug info
 console.log(`Loaded ${castles.length} castles onto the map.`);
+=======
+castles.forEach(castle => {
+  L.marker([castle.lat, castle.lng])
+    .addTo(map)
+    .bindPopup(`<b>${castle.name}</b><br>${castle.desc}`);
+});
+// ===== ZOZNAM HRADOV POD MAPOU =====
+
+const castleListEl = document.getElementById("castleItems");
+
+if (castleListEl) {
+  castles.forEach(castle => {
+    const li = document.createElement("li");
+    li.textContent = castle.name;
+    li.style.cursor = "pointer";
+    li.style.margin = "6px 0";
+
+    li.addEventListener("click", () => {
+      map.setView([castle.lat, castle.lng], 12);
+    });
+
+    castleListEl.appendChild(li);
+  });
+}
+>>>>>>> Stashed changes
