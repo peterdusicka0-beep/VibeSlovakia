@@ -1,78 +1,35 @@
-// js/map.js
 
-// 1. Ochrana proti chybám – overíme, že Leaflet existuje
-if (typeof L === "undefined") {
-  console.error("Leaflet library is not loaded.");
-}
+// 1. Inicializácia mapy na stred Slovenska
+const map = L.map('map').setView([48.66, 19.33], 7);
 
-// 2. Inicializácia mapy – stred Slovenska
-const map = L.map("map", {
-  center: [48.669, 19.699],
-  zoom: 8,
-  minZoom: 7,
-  maxZoom: 18,
-});
-
-// 3. Základná mapová vrstva (OpenStreetMap)
-L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-  attribution: "&copy; OpenStreetMap contributors",
+// 2. Načítanie dlaždíc mapy
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '© OpenStreetMap contributors'
 }).addTo(map);
 
-<<<<<<< Updated upstream
-// 4. Overenie dát
-if (!Array.isArray(castles)) {
-  console.error("Castles data not found or invalid.");
-}
+// 3. Prepojenie na HTML element zoznamu
+const listElement = document.getElementById('castle-list');
 
-// 5. Vlastná ikona markeru
-const castleIcon = L.icon({
-  iconUrl: "assets/icons/castle-marker.png",
-  iconSize: [32, 32],
-  iconAnchor: [16, 32],
-  popupAnchor: [0, -32],
-});
-
-// 6. Vykreslenie hradov na mapu
-castles.forEach((castle) => {
-  if (!castle.location || !castle.location.lat || !castle.location.lng) {
-    return;
-  }
-
-  const marker = L.marker(
-    [castle.location.lat, castle.location.lng],
-    { icon: castleIcon }
-  ).addTo(map);
-
-  marker.bindPopup(`
-    <strong>${castle.name}</strong><br>
-    Región: ${castle.region}
-  `);
-});
-
-// 7. Debug info
-console.log(`Loaded ${castles.length} castles onto the map.`);
-=======
+// 4. Cyklus, ktorý prejde všetky hrady z castles.js
 castles.forEach(castle => {
-  L.marker([castle.lat, castle.lng])
-    .addTo(map)
-    .bindPopup(`<b>${castle.name}</b><br>${castle.desc}`);
+    // Pridanie značky (markeru) na mapu
+    const marker = L.marker([castle.lat, castle.lng]).addTo(map);
+    marker.bindPopup(`<b>${castle.name}</b><br>${castle.description}`);
+
+    // Pridanie hradu do zoznamu pod mapou
+    if (listElement) {
+        const li = document.createElement('li');
+        li.innerHTML = `<strong>🏰 ${castle.name}</strong>`;
+        li.style.cursor = "pointer";
+        li.style.padding = "10px";
+        li.style.borderBottom = "1px solid #ddd";
+
+        // Akcia po kliknutí v zozname (priblíženie mapy)
+        li.addEventListener('click', () => {
+            map.setView([castle.lat, castle.lng], 13);
+            marker.openPopup();
+        });
+
+        listElement.appendChild(li);
+    }
 });
-// ===== ZOZNAM HRADOV POD MAPOU =====
-
-const castleListEl = document.getElementById("castleItems");
-
-if (castleListEl) {
-  castles.forEach(castle => {
-    const li = document.createElement("li");
-    li.textContent = castle.name;
-    li.style.cursor = "pointer";
-    li.style.margin = "6px 0";
-
-    li.addEventListener("click", () => {
-      map.setView([castle.lat, castle.lng], 12);
-    });
-
-    castleListEl.appendChild(li);
-  });
-}
->>>>>>> Stashed changes
