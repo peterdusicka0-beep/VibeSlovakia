@@ -32,4 +32,26 @@ castles.forEach(castle => {
 
         listElement.appendChild(li);
     }
+});const castleList = document.getElementById("castle-list");
+
+castles.forEach(castle => {
+  const li = document.createElement("li");
+  li.textContent = castle.name;
+  li.style.cursor = "pointer";
+  li.style.padding = "6px 0";
+
+  li.addEventListener("click", () => {
+    map.setView([castle.lat, castle.lng], 9);
+
+    markers.eachLayer(marker => {
+      if (
+        marker.getLatLng().lat === castle.lat &&
+        marker.getLatLng().lng === castle.lng
+      ) {
+        marker.openPopup();
+      }
+    });
+  });
+
+  castleList.appendChild(li);
 });
