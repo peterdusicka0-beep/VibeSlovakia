@@ -1,29 +1,29 @@
-<!DOCTYPE html><html lang="sk"><head>
-  <meta charset="UTF-8" />
-  <title>VibeSlovakia – Hrady Slovenska</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-  <link rel="stylesheet" href="style.css" />
-  <link rel="manifest" href="manifest.json" /></head><body>
-  <header>
-    <h1>🏰 VibeSlovakia</h1>
-    <p>Interaktívna mapa hradov Slovenska</p>
-  </header>
-  <main>
-    <div id="map"></div>
-    <section id="castleList">
-  <h2>Zoznam hradov</h2>
-  <ul id="castleItems"></ul>
-</section>
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vibe Slovakia - Mapa hradov</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+   <header class="app-header">
 
+        <h1>🏰 Hrady Slovenska</h1>
+    </header>
 
-  </main>
-  <script src="data/castles.js"></script>
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-  <script src="js/map.js"></script>
-  <script>
-    if ("serviceWorker" in navigator) {
-      navigator.serviceWorker.register("service-worker.js");
-    }
-  </script></body></html>
-  
+    <main>
+        <div id="map" style="height: 500px; width: 100%;"></div>
+        <section id="castle-list-container">
+
+            <h2>Zoznam hradov (kliknite pre zobrazenie na mape)</h2>
+            <ul id="castle-list" style="list-style: none; padding: 0;"></ul>
+        </section>
+    </main>
+
+    <script src="data/castles.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="js/map.js"></script>
+</body>
+</html>
