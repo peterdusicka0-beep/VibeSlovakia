@@ -1,85 +1,51 @@
 <!DOCTYPE html>
 <html lang="sk">
 <head>
-  <meta charset="UTF-8" />
-  <title>Hrady Slovenska – VibeSlovakia</title>
+  <meta charset="UTF-8">
+  <title>VibeSlovakia – Hrady Slovenska</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <!-- Leaflet CSS -->
   <link
     rel="stylesheet"
     href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
   />
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-    }
-
-    header {
-      padding: 10px;
-      background: #222;
-      color: white;
-      text-align: center;
-    }
-
-    #controls {
-      padding: 10px;
-      background: #f5f5f5;
-    }
-
-    #search {
-      width: 100%;
-      padding: 8px;
-      font-size: 16px;
-    }
-
-    #map {
-      height: 500px;
-    }
-
-    #castleList {
-      padding: 10px;
-    }
-
-    .castle-item {
-      cursor: pointer;
-      padding: 6px 0;
-      border-bottom: 1px solid #ddd;
-    }
-
-    .castle-item:hover {
-      background: #eee;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
+
   <header>
     <h1>Hrady Slovenska</h1>
-  </header>
-
-  <div id="controls">
     <input
       type="text"
-      id="search"
+      id="searchInput"
       placeholder="Vyhľadaj hrad (napr. Bra, Spiš...)"
-    />
-  </div>
+    >
+  </header>
 
-  <div id="map"></div>
+  <main>
+    <div id="map"></div>
 
-  <div id="castleList">
-    <h3>Zoznam hradov (kliknite pre zobrazenie na mape)</h3>
-    <div id="list"></div>
-  </div>
+    <section id="castleListSection">
+      <h2>Zoznam hradov (kliknite pre zobrazenie na mape)</h2>
+      <ul id="castleList"></ul>
+    </section>
 
+    <section id="audioSection">
+      <h2>Audio sprievodca</h2>
+      <audio id="audioPlayer" controls></audio>
+    </section>
+  </main>
+
+  <!-- Leaflet JS -->
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <!-- DATA MUSIA ÍSŤ PRVÉ -->
   <script src="data/castles.js"></script>
+
+  <!-- LOGIKA MAPY -->
   <script src="js/map.js"></script>
+
 </body>
-<div id="audioPanel" style="padding:10px;text-align:center;">
-  <audio id="audioPlayer" controls style="width:90%;"></audio>
-</div>
-
 </html>
-
