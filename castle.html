@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+  <meta charset="UTF-8">
+  <title>VibeSlovakia – Hrad</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 16px;
+      background: #f4f4f4;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    img {
+      max-width: 100%;
+      border-radius: 8px;
+      margin: 12px 0;
+    }
+
+    audio {
+      width: 100%;
+      margin-top: 12px;
+    }
+
+    .box {
+      background: #fff;
+      padding: 16px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+      max-width: 600px;
+      margin: auto;
+    }
+
+    .offline {
+      text-align: center;
+      margin-top: 10px;
+      font-size: 0.9em;
+      color: green;
+    }
+  </style>
+</head>
+<body>
+
+<div class="box">
+  <h1 id="castleName">Hrad</h1>
+  <img id="castleImage" src="" alt="Hrad">
+  <p id="castleDesc"></p>
+  <audio id="castleAudio" controls></audio>
+  <div class="offline" id="offlineStatus"></div>
+</div>
+
+<script src="data/castles.js"></script>
+
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const castleId = parseInt(params.get("id"));
+
+  const castle = castles.find(c => c.id === castleId);
+
+  if (!castle) {
+    document.body.innerHTML = "<h2>Hrad sa nenašiel</h2>";
+    throw new Error("Castle not found");
+  }
+
+  document.getElementById("castleName").textContent = castle.name;
+  document.getElementById("castleDesc").textContent = castle.desc;
+  document.getElementById("castleImage").src = castle.image;
+
+  const audio = document.getElementById("castleAudio");
+  const offlineKey = `audio_${castle.id}`;
+
+  if (localStorage.getItem(offlineKey)) {
+    audio.src = localStorage.getItem(offlineKey);
+    document.getElementById("offlineStatus").textContent = "✔ Prehrávanie offline";
+  } else {
+    audio.src = "assets/audio/placeholder.mp3";
+
+    fetch(audio.src)
+      .then(res => res.blob())
+      .then(blob => {
+        const url = URL.createObjectURL(blob);
+        localStorage.setItem(offlineKey, url);
+        audio.src = url;
+        document.getElementById("offlineStatus").textContent = "⬇ Audio uložené pre offline";
+      })
+      .catch(() => {
+        document.getElementById("offlineStatus").textContent = "⚠ Audio nedostupné";
+      });
+  }
+</script>
+
+</body>
+</html>

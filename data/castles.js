@@ -22,7 +22,7 @@ const castles = [
     name: "Oravský hrad",
     lat: 49.2631,
     lng: 19.3597,
-    desc: "Impozantný hrad na vysokej skale nad riekou Orava.",
+    desc: "Impozantný hrad na skale nad riekou Orava.",
     image: "assets/images/orava_ai.webp",
     audio: "assets/audio/placeholder.mp3"
   },
@@ -31,7 +31,7 @@ const castles = [
     name: "Trenčiansky hrad",
     lat: 48.8946,
     lng: 18.0416,
-    desc: "Historický hrad s dominantnou vežou Matúša Čáka.",
+    desc: "Historický hrad Matúša Čáka.",
     image: "assets/images/trencin_ai.webp",
     audio: "assets/audio/placeholder.mp3"
   },
